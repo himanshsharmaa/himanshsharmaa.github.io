@@ -6,7 +6,7 @@
     <meta name="description" content="Welcome To My Portfolio">
     <meta name="author" content="Himansh Sharma">
 
-    <title>Himansh Sharma</title>
+    <title>Himansh Sharma - Developer</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,73 +19,47 @@
   <div class="background-grid"></div>
   <div class="content-wrapper">
 
-      <div class="contact-shell">
-        <div class="contact-card contact-info-box">
-          <div class="map-wrap mb-4">
+    <!-- MENU -->
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="#">Himansh Sharma</a>
           <div class="collapse navbar-collapse">
-          <div class="contact-copy">
-            <span class="contact-eyebrow">Contact</span>
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <p class="contact-lead">Have a project, internship, freelance idea, or collaboration in mind? Send a message and I’ll reply by email.</p>
-            <div class="contact-methods">
-              <a class="contact-method" href="mailto:himanshsharma046@gmail.com">
-                <i class="fas fa-envelope"></i>
-                <span>
-                  <small>Email</small>
-                  himanshsharma046@gmail.com
-                </span>
-              </a>
-              <a class="contact-method" href="tel:+917678609018">
-                <i class="fas fa-phone"></i>
-                <span>
-                  <small>Phone</small>
-                  +91 76786 09018
-                </span>
-              </a>
-            </div>
-            <div class="contact-badges">
-              <span class="contact-badge">Usually replies within 24 hours</span>
-              <span class="contact-badge">Available for freelance work</span>
-            </div>
-            <a class="btn-primary-custom mt-3 align-self-start" href="mailto:himanshsharma046@gmail.com">
+              <li class="nav-item"><a class="nav-link" href="#project">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
           </div>
         </div>
       </nav>
 
-        <div class="contact-card contact-form-card">
-          <div class="contact-form-header">
-            <span class="contact-eyebrow">Send a message</span>
-            <h3>Start the conversation</h3>
-            <p>Fill out the form below and your message will be delivered to my inbox through Formspree.</p>
-          </div>
-          <form action="https://formspree.io/f/xwpbardz" method="POST" id="contact-form" class="contact-form">
+      <!-- HERO -->
+      <section class="hero d-flex flex-column justify-content-center align-items-center" id="intro">
         <div class="container">
-            <input type="hidden" name="_replyto" value="">
           <div class="row">
             <div class="col-lg-6 col-md-12 col-12">
               <div class="hero-text">
-                  <input type="text" class="form-control" name="name" placeholder="Your Name" autocomplete="name" required>
+                <h1 class="hero-title">I'm Himansh Sharma, a<br><span id="roles"></span></h1>
                 <p class="hero-subtitle">I am a passionate and versatile developer with a knack for creating dynamic and user-friendly web applications. I thrive on turning complex problems into elegant solutions.</p>
                 <div class="social-links mb-4">
                   <a href="https://www.linkedin.com/in/himanshsharmaa" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                   <a href="https://github.com/himanshsharmaa" title="GitHub"><i class="fab fa-github"></i></a>
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" autocomplete="email" required>
+                  <a href="https://www.instagram.com/himanshsharmaa" title="Instagram"><i class="fab fa-instagram"></i></a>
                   <a href="https://x.com/himanshsharmaa_" title="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
               </div>
             </div>
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" autocomplete="off" required>
+            <div class="col-lg-6 col-md-12 col-12">
               <div class="hero-image-container">
                 <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="hero-image" alt="Software Engineer">
               </div>
             </div>
-                  <textarea class="form-control" rows="6" name="message" placeholder="Your Message" spellcheck="true" required></textarea>
+          </div>
         </div>
       </section>
 
-                <button type="submit" class="btn-primary contact-submit">
+
     <!-- ABOUT -->
     <section class="about-section" id="about">
       <div class="container">
@@ -94,9 +68,8 @@
         <!-- Hero Card -->
         <div class="about-hero-card">
           <div class="about-hero-content">
-          <div id="form-success" class="contact-success" style="display:none;">
-            <i class="fas fa-check-circle"></i>
-            Thank you! Your message has been sent.
+            <div class="about-intro">
+              <h3 class="about-subtitle">Full-Stack Developer & AI Enthusiast</h3>
               <p class="about-description">
                 Passionate developer with 2 years of experience crafting innovative software solutions. 
                 I specialize in building scalable web applications and exploring the frontiers of AI/ML technology.
@@ -104,6 +77,163 @@
             </div>
             <div class="about-stats">
               <div class="stat-item">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Projects Built</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Technologies</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills & Achievements Grid -->
+        <div class="about-grid">
+          <!-- Skills Card -->
+          <div class="about-card skills-card">
+            <div class="card-header">
+              <div class="card-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h4>Tech Stack</h4>
+            </div>
+            <div class="skills-grid">
+              <!-- Frontend Technologies -->
+              <div class="skill-category">
+                <h5 class="category-title">Frontend</h5>
+                <div class="category-skills">
+                  <span class="skill-tag">JavaScript (ES6+)</span>
+                  <span class="skill-tag">HTML5</span>
+                  <span class="skill-tag">CSS3</span>
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">Bootstrap</span>
+                  <span class="skill-tag">Tailwind CSS</span>
+                  <span class="skill-tag">jQuery</span>
+                </div>
+              </div>
+
+              <!-- Backend Technologies -->
+              <div class="skill-category">
+                <h5 class="category-title">Backend</h5>
+                <div class="category-skills">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">PHP</span>
+                  <span class="skill-tag">Express.js</span>
+                  <span class="skill-tag">REST APIs</span>
+                </div>
+              </div>
+              
+              <!-- Databases -->
+              <div class="skill-category">
+                <h5 class="category-title">Databases</h5>
+                <div class="category-skills">
+                  <span class="skill-tag">MySQL</span>
+                  <span class="skill-tag">MongoDB</span>
+                  <span class="skill-tag">SQLite</span>
+                </div>
+              </div>
+
+              <!-- AI/ML Technologies -->
+              <div class="skill-category">
+                <h5 class="category-title">AI/ML & Data Science</h5>
+                <div class="category-skills">
+                  <span class="skill-tag">TensorFlow</span>
+                  <span class="skill-tag">Keras</span>
+                  <span class="skill-tag">OpenCV</span>
+                  <span class="skill-tag">NumPy</span>
+                  <span class="skill-tag">Pandas</span>
+                  <span class="skill-tag">Scikit-learn</span>
+                  <span class="skill-tag">CNN</span>
+                  <span class="skill-tag">NLP</span>
+                  <span class="skill-tag">Computer Vision</span>
+                  <span class="skill-tag">Jupyter</span>
+                </div>
+              </div>
+
+              <!-- Tools & Technologies -->
+              <div class="skill-category">
+                <h5 class="category-title">Tools & Others</h5>
+                <div class="category-skills">
+                  <span class="skill-tag">Git</span>
+                  <span class="skill-tag">GitHub</span>
+                  <span class="skill-tag">VS Code</span>
+                  <span class="skill-tag">Postman</span>
+                  <span class="skill-tag">Figma</span>
+                  <span class="skill-tag">Linux</span>
+                  <span class="skill-tag">JSON</span>
+                </div>
+              </div>
+            </div>
+            <div class="view-more-container">
+              <button class="view-more-btn" onclick="toggleSkills()">
+                <span class="view-more-text">View More</span>
+                <i class="fas fa-chevron-down view-more-icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Achievements Card -->
+          <div class="about-card achievements-card">
+            <div class="card-header">
+              <div class="card-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h4>Key Achievements</h4>
+            </div>
+            <div class="achievements-list">
+              <div class="achievement-item">
+                <div class="achievement-icon">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <div class="achievement-content">
+                  <h5>Founded Keplor</h5>
+                  <p>Leading innovative software solutions</p>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="achievement-content">
+                  <h5>Built Examify</h5>
+                  <p>Online examination portal</p>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-icon">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <div class="achievement-content">
+                  <h5>AI Projects</h5>
+                  <p>CNN, NLP, and RAG systems</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Card -->
+          <div class="about-card cta-card">
+            <div class="cta-content">
+              <h4>Let's Work Together</h4>
+              <p>Ready to bring your ideas to life with cutting-edge technology</p>
+              <div class="cta-buttons">
+                <a href="Resume.pdf" class="btn-primary-custom" target="_blank">
+                  <i class="fas fa-download"></i>
+                  Download Resume
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
                 <span class="stat-number">2+</span>
                 <span class="stat-label">Years Experience</span>
               </div>
@@ -461,7 +591,7 @@
               </div>
             </div>
             <div class="col-12">
-              <button type="submit" class="btn-primary-custom contact-submit">
+              <button type="submit" class="btn-primary-custom">
                 <span class="btn-text">Send Message</span>
                 <span class="btn-loading" style="display: none;">
                   <i class="fas fa-spinner fa-spin"></i> Sending...
