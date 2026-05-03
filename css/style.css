@@ -1201,7 +1201,7 @@ section,
 }
 
 .contact-info-box .contact-note {
-  color: #999;
+  color: var(--gray-400);
 }
 
 .contact-info-box b,
