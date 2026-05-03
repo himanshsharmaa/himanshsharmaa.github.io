@@ -33,11 +33,6 @@ body::-webkit-scrollbar-track {
   background-color: var(--gray-800);
 }
 
-body::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);
-  border-radius: 8px;
-}
-
 .background-grid {
   background-image:
     linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px),
