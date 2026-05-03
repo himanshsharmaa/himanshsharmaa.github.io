@@ -1196,6 +1196,7 @@ section,
 .contact-info-box p {
   color: #fff;
   font-size: 1.1rem;
+  font-weight: 400;
   margin-bottom: 0.5rem;
 }
 
@@ -1203,6 +1204,17 @@ section,
 .contact-info-box strong {
   color: #fff;
   font-weight: 600;
+}
+
+.contact-whatsapp-btn {
+  background-color: #25d366 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-whatsapp-btn:hover {
+  background-color: #1fae52 !important;
 }
 
 .contact-info-box a[href^="mailto:"],
@@ -1228,6 +1240,13 @@ section,
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   margin-bottom: 0;
+}
+
+.contact-form h3 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
 .form-group {
