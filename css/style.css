@@ -1200,6 +1200,10 @@ section,
   margin-bottom: 0.5rem;
 }
 
+.contact-note {
+  color: #999;
+}
+
 .contact-info-box b,
 .contact-info-box strong {
   color: #fff;
