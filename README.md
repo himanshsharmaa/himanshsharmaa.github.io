@@ -2,7 +2,7 @@
 
 ## 💡 Live Demo
 <p align="center">
-  📱 <strong>GitHub Pages:</strong> <a href="https://himanshsharmaa.github.io/me/" target="_blank">https://himanshsharmaa.github.io/me</a>
+  📱 <strong>GitHub Pages:</strong> <a href="https://himanshsharmaa.github.io/" target="_blank">https://himanshsharmaa.github.io</a>
 </p>
 
 <p align="center">
