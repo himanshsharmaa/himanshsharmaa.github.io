@@ -1172,48 +1172,6 @@ section,
   z-index: 1;
 }
 
-.contact-info-box {
-  background: var(--gray-800);
-  border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  padding: 2rem 2rem 1.5rem 2rem;
-  margin-top: 0;
-  box-shadow: none;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contact-info-box h3 {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.contact-info-box p {
-  color: #fff;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-
-.contact-info-box b,
-.contact-info-box strong {
-  color: #fff;
-  font-weight: 600;
-}
-
-.contact-info-box a {
-  color: #c084fc;
-  font-weight: 400;
-  text-decoration: none;
-  transition: color 0.2s;
-  word-break: break-all;
-}
-
-.contact-info-box a:hover {
-  color: var(--primary-color);
-}
-
 .contact-layout {
   align-items: stretch;
 }
@@ -1238,6 +1196,9 @@ section,
   padding: 2rem 1.5rem 1.5rem 1.5rem;
   margin-bottom: 0;
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form-header {
@@ -1253,11 +1214,25 @@ section,
 
 .contact-form-header p {
   color: var(--gray-400);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+  line-height: 1.65;
 }
 
 .contact-form-inner {
   margin-top: 0.75rem;
+}
+
+.contact-whatsapp-btn {
+  background-color: #25d366;
+}
+
+.contact-whatsapp-btn:hover,
+.contact-whatsapp-btn:focus {
+  background-color: #1fb858;
+}
+
+.contact-whatsapp-btn i {
+  font-size: 1.1rem;
 }
 
 
@@ -1396,7 +1371,6 @@ section,
 }
 
 /* Glassmorphism effect for cards */
-.contact-info-box,
 .contact-form {
   background: rgba(24, 28, 39, 0.6); /* transparent dark */
   backdrop-filter: blur(12px);
@@ -1406,31 +1380,6 @@ section,
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
 }
 
-/* Match info card width to map */
-.contact-info-box {
-  max-width: 480px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 2rem 2rem 1.5rem 2rem;
-}
-
-/* Email and phone color/hover */
-.contact-info-box a[href^="mailto:"],
-.contact-info-box a[href^="tel:"] {
-  color: #c084fc; /* light purple */
-  font-weight: 400; /* not bold */
-  text-decoration: none;
-  transition: color 0.2s;
-  word-break: break-all;
-}
-
-.contact-info-box a[href^="mailto:"]:hover,
-.contact-info-box a[href^="tel:"]:hover {
-  color: var(--primary-color);
-}
 
 /* Footer social icon smaller */
 .footer-social-links a {
