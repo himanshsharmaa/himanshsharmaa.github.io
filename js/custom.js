@@ -151,65 +151,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Form submission with Formspree
-$('#contact-form').submit(function(e) {
-    e.preventDefault();
-    
-    const form = this;
-    const formData = new FormData(form);
-    const submitBtn = $(form).find('button[type="submit"]');
-    const btnText = submitBtn.find('.btn-text');
-    const btnLoading = submitBtn.find('.btn-loading');
-    
-    // Validation
-    let isValid = true;
-    $(form).find('input[required], textarea[required]').each(function() {
-        if ($(this).val().trim() === '') {
-            isValid = false;
-            $(this).addClass('error');
-        } else {
-            $(this).removeClass('error');
-        }
-    });
-    
-    if (!isValid) {
-        showNotification('Please fill in all required fields.', 'error');
-        return;
-    }
-    
-    // Show loading state
-    submitBtn.prop('disabled', true);
-    btnText.hide();
-    btnLoading.show();
-    
-    // Submit to Formspree
-    fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            showNotification('Thank you! Your message has been sent successfully.', 'success');
-            form.reset();
-        } else {
-            throw new Error('Network response was not ok');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
-    })
-    .finally(() => {
-        // Reset button state
-        submitBtn.prop('disabled', false);
-        btnText.show();
-        btnLoading.hide();
-    });
-});
-
 // Notification system
 function showNotification(message, type = 'info') {
     // Remove existing notifications

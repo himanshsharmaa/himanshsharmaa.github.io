@@ -403,10 +403,15 @@
           <h3 class="mb-3">Say hello</h3>
           <p><b>E-Mail:</b> <a href="mailto:himanshsharma046@gmail.com">himanshsharma046@gmail.com</a></p>
           <p><b>Phone:</b> <a href="tel:+917678609018">+91 76786 09018</a></p>
+          <a class="btn-primary-custom mt-3 align-self-start" href="mailto:himanshsharma046@gmail.com">
+            <i class="fas fa-envelope"></i>
+            Email Me
+          </a>
         </div>
       </div>
       <div class="col-lg-7 col-12 d-flex flex-column justify-content-center">
         <form action="https://formspree.io/f/xwpbardz" method="POST" id="contact-form" class="contact-form">
+          <input type="hidden" name="_subject" value="New message from Himansh Sharma portfolio">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-12">
               <div class="form-group">
@@ -474,33 +479,6 @@
     <script src="js/smoothscroll.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/contact-form.js"></script>
-
-    <script>
-      function toggleSkills() {
-        const skillsGrid = document.querySelector('.skills-card .skills-grid');
-        const viewMoreBtn = document.querySelector('.skills-card .view-more-btn');
-        const viewMoreText = document.querySelector('.skills-card .view-more-text');
-        
-        if (skillsGrid.classList.contains('expanded')) {
-          skillsGrid.classList.remove('expanded');
-          viewMoreBtn.classList.remove('expanded');
-          viewMoreText.textContent = 'View More';
-        } else {
-          skillsGrid.classList.add('expanded');
-          viewMoreBtn.classList.add('expanded');
-          viewMoreText.textContent = 'View Less';
-        }
-      }
-
-      // Show success message after redirect (optional, if using AJAX)
-      $('#contact-form').on('submit', function(e) {
-          // ...validation as above...
-          if (isValid) {
-              // Optionally use AJAX to submit and show message without page reload
-              // Otherwise, Formspree will show its own thank you page
-          }
-      });
-    </script>
 
   </body>
 </html>
