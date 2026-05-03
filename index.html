@@ -19,47 +19,73 @@
   <div class="background-grid"></div>
   <div class="content-wrapper">
 
-    <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
-        <div class="container">
+      <div class="contact-shell">
+        <div class="contact-card contact-info-box">
+          <div class="map-wrap mb-4">
           <a class="navbar-brand" href="#">Himansh Sharma</a>
           <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
+          <div class="contact-copy">
+            <span class="contact-eyebrow">Contact</span>
               <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#project">Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <p class="contact-lead">Have a project, internship, freelance idea, or collaboration in mind? Send a message and I’ll reply by email.</p>
+            <div class="contact-methods">
+              <a class="contact-method" href="mailto:himanshsharma046@gmail.com">
+                <i class="fas fa-envelope"></i>
+                <span>
+                  <small>Email</small>
+                  himanshsharma046@gmail.com
+                </span>
+              </a>
+              <a class="contact-method" href="tel:+917678609018">
+                <i class="fas fa-phone"></i>
+                <span>
+                  <small>Phone</small>
+                  +91 76786 09018
+                </span>
+              </a>
+            </div>
+            <div class="contact-badges">
+              <span class="contact-badge">Usually replies within 24 hours</span>
+              <span class="contact-badge">Available for freelance work</span>
+            </div>
+            <a class="btn-primary-custom mt-3 align-self-start" href="mailto:himanshsharma046@gmail.com">
             </ul>
           </div>
         </div>
       </nav>
 
-      <!-- HERO -->
-      <section class="hero d-flex flex-column justify-content-center align-items-center" id="intro">
+        <div class="contact-card contact-form-card">
+          <div class="contact-form-header">
+            <span class="contact-eyebrow">Send a message</span>
+            <h3>Start the conversation</h3>
+            <p>Fill out the form below and your message will be delivered to my inbox through Formspree.</p>
+          </div>
+          <form action="https://formspree.io/f/xwpbardz" method="POST" id="contact-form" class="contact-form">
         <div class="container">
+            <input type="hidden" name="_replyto" value="">
           <div class="row">
             <div class="col-lg-6 col-md-12 col-12">
               <div class="hero-text">
-                <h1 class="hero-title">I'm Himansh Sharma, a<br><span id="roles"></span></h1>
+                  <input type="text" class="form-control" name="name" placeholder="Your Name" autocomplete="name" required>
                 <p class="hero-subtitle">I am a passionate and versatile developer with a knack for creating dynamic and user-friendly web applications. I thrive on turning complex problems into elegant solutions.</p>
                 <div class="social-links mb-4">
                   <a href="https://www.linkedin.com/in/himanshsharmaa" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                   <a href="https://github.com/himanshsharmaa" title="GitHub"><i class="fab fa-github"></i></a>
-                  <a href="https://www.instagram.com/himanshsharmaa" title="Instagram"><i class="fab fa-instagram"></i></a>
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" autocomplete="email" required>
                   <a href="https://x.com/himanshsharmaa_" title="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" autocomplete="off" required>
               <div class="hero-image-container">
                 <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="hero-image" alt="Software Engineer">
               </div>
             </div>
-          </div>
+                  <textarea class="form-control" rows="6" name="message" placeholder="Your Message" spellcheck="true" required></textarea>
         </div>
       </section>
 
-
+                <button type="submit" class="btn-primary contact-submit">
     <!-- ABOUT -->
     <section class="about-section" id="about">
       <div class="container">
@@ -68,8 +94,9 @@
         <!-- Hero Card -->
         <div class="about-hero-card">
           <div class="about-hero-content">
-            <div class="about-intro">
-              <h3 class="about-subtitle">Full-Stack Developer & AI Enthusiast</h3>
+          <div id="form-success" class="contact-success" style="display:none;">
+            <i class="fas fa-check-circle"></i>
+            Thank you! Your message has been sent.
               <p class="about-description">
                 Passionate developer with 2 years of experience crafting innovative software solutions. 
                 I specialize in building scalable web applications and exploring the frontiers of AI/ML technology.

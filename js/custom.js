@@ -155,17 +155,17 @@ document.head.appendChild(style);
 function showNotification(message, type = 'info') {
     // Remove existing notifications
     $('.notification').remove();
-    
-    const notification = $(`
-        <div class="notification notification-${type}">
-            <div class="notification-content">
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
-                <span>${message}</span>
-                <button class="notification-close">&times;</button>
-            </div>
-        </div>
-    `);
-    
+
+    const notification = $('<div>').addClass(`notification notification-${type}`);
+    const content = $('<div>').addClass('notification-content');
+    const icon = $('<i>').addClass('fas').addClass(
+        type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'
+    );
+    const text = $('<span>').text(message);
+    const closeButton = $('<button>').addClass('notification-close').html('&times;');
+
+    content.append(icon, text, closeButton);
+    notification.append(content);
     $('body').append(notification);
     
     // Auto remove after 5 seconds
