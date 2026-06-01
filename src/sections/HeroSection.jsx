@@ -50,6 +50,8 @@ function RotatingRoleAnimated({ roles }) {
 }
 
 export default function HeroSection({ onNavigate }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="intro" className="section-shell relative overflow-hidden pt-28 sm:pt-32">
       <div className="grid-noise absolute inset-0 opacity-30" aria-hidden="true" />
@@ -156,12 +158,29 @@ export default function HeroSection({ onNavigate }) {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(192,132,252,0.24),transparent_38%),radial-gradient(circle_at_85%_12%,rgba(168,85,247,0.18),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_38%)]" aria-hidden="true" />
             <div className="absolute inset-x-10 top-10 h-36 rounded-full bg-violet-400/20 blur-3xl" aria-hidden="true" />
             <div className="relative z-10 rounded-[2rem] border border-white/8 bg-black/10 p-3 backdrop-blur-sm sm:p-4">
-              <img
-                src="/images/undraw/undraw_software_engineer_lvl5.svg"
-                alt="Software engineer illustration"
-                className="mx-auto w-full max-w-md drop-shadow-[0_28px_70px_rgba(0,0,0,0.28)]"
-              />
-            </div>
+                {/* soft blurred glow behind the illustration for depth */}
+                <div aria-hidden="true" className="pointer-events-none absolute inset-2 -z-10 rounded-[1.6rem] bg-gradient-to-br from-violet-600/25 via-transparent to-transparent blur-2xl" />
+                {/* subtle shadow ellipse to replace harsh flat underlay */}
+                <div aria-hidden="true" className="pointer-events-none absolute left-1/2 bottom-2 -z-20 h-24 w-56 -translate-x-1/2 rounded-full bg-black/40 blur-[36px]" />
+
+                <motion.div
+                  initial={{ y: 0 }}
+                  animate={shouldReduceMotion ? { y: 0 } : { y: [0, -8, 0] }}
+                  transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+                  className="mx-auto w-full max-w-md"
+                  style={{ willChange: 'transform' }}
+                >
+                  <img
+                    src="/images/undraw/undraw_software_engineer_lvl5.svg"
+                    alt="Software engineer illustration"
+                    className="w-full h-auto mx-auto"
+                    style={{
+                      mixBlendMode: 'overlay',
+                      filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.36))',
+                    }}
+                  />
+                </motion.div>
+              </div>
             <div className="relative z-10 mt-6 grid gap-3 sm:grid-cols-3">
               {[
                 ['Full-stack', 'Products'],
