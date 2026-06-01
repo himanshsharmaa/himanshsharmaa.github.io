@@ -153,11 +153,11 @@ export default function HeroSection({ onNavigate }) {
           className="relative mx-auto w-full max-w-xl"
         >
           <div className="absolute inset-8 rounded-[2.75rem] bg-violet-500/20 blur-[90px]" aria-hidden="true" />
-          <div className="absolute inset-0 rounded-[2.75rem] border border-violet-400/10 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent" aria-hidden="true" />
-          <div className="glass-card glow-ring relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
+          <div className="absolute inset-0 rounded-[2.75rem] pointer-events-none" aria-hidden="true" />
+          <div className="glass-card glow-ring relative overflow-visible rounded-[2.5rem] p-0 sm:p-0 bg-transparent border-0">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(192,132,252,0.24),transparent_38%),radial-gradient(circle_at_85%_12%,rgba(168,85,247,0.18),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_38%)]" aria-hidden="true" />
             <div className="absolute inset-x-10 top-10 h-36 rounded-full bg-violet-400/20 blur-3xl" aria-hidden="true" />
-            <div className="relative z-10 rounded-[2rem] border border-white/8 bg-black/10 p-3 backdrop-blur-sm sm:p-4">
+              <div className="relative z-10 rounded-[2rem] p-0 bg-transparent border-0 sm:p-0">
                 {/* soft blurred glow behind the illustration for depth */}
                 <div aria-hidden="true" className="pointer-events-none absolute inset-2 -z-10 rounded-[1.6rem] bg-gradient-to-br from-violet-600/25 via-transparent to-transparent blur-2xl" />
                 {/* subtle shadow ellipse to replace harsh flat underlay */}
@@ -167,7 +167,7 @@ export default function HeroSection({ onNavigate }) {
                   initial={{ y: 0 }}
                   animate={shouldReduceMotion ? { y: 0 } : { y: [0, -8, 0] }}
                   transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-                  className="mx-auto w-full max-w-md"
+                  className="relative z-20 mx-auto w-full max-w-md"
                   style={{ willChange: 'transform' }}
                 >
                   <img
@@ -175,11 +175,13 @@ export default function HeroSection({ onNavigate }) {
                     alt="Software engineer illustration"
                     className="w-full h-auto mx-auto"
                     style={{
-                      mixBlendMode: 'overlay',
-                      filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.36))',
+                      mixBlendMode: 'normal',
+                      filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.32))',
                     }}
                   />
                 </motion.div>
+                {/* overlay cover to hide SVG's built-in ground ellipse and make image appear as part of background */}
+                <div aria-hidden="true" className="absolute left-1/2 bottom-6 z-30 -translate-x-1/2 h-28 w-64 rounded-full bg-gradient-to-b from-transparent to-black/60 pointer-events-none" />
               </div>
             <div className="relative z-10 mt-6 grid gap-3 sm:grid-cols-3">
               {[
