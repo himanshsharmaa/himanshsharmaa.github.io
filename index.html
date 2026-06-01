@@ -18,7 +18,50 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Safe loader: check the server MIME for /src/main.jsx before injecting
+      // the module script. If the server returns a JSX MIME (or the request
+      // fails), show a friendly overlay with instructions instead of letting
+      // the browser fail with a module MIME error.
+      (function(){
+        function showOverlay(message){
+          var overlay = document.createElement('div');
+          overlay.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.8));color:#fff;z-index:99999;font-family:sans-serif;text-align:center';
+          overlay.innerHTML = '<div style="max-width:760px;"><h2 style="margin:0 0 8px;font-size:20px">Cannot load app</h2><p style="margin:0 0 16px;opacity:0.95">'+message+'</p><p style="margin:0.75rem 0 0;opacity:0.85">Recommended: <code style="background:#111;padding:6px 8px;border-radius:4px">npm install</code> then <code style="background:#111;padding:6px 8px;border-radius:4px">npm run dev</code> — or run <code style="background:#111;padding:6px 8px;border-radius:4px">npm run build</code> and serve the <strong>dist</strong> folder.</p></div>';
+          document.body.appendChild(overlay);
+        }
+
+        // If running from file://, immediately show instructions.
+        if (location.protocol === 'file:'){
+          showOverlay('This file was opened directly. The app must be served by the Vite dev server or a static server.');
+          return;
+        }
+
+        // Probe the main module to check Content-Type. Use fetch and inspect headers.
+        fetch('/src/main.jsx', { method: 'GET', cache: 'no-store' })
+          .then(function(res){
+            var ct = res.headers.get('content-type') || '';
+            ct = ct.toLowerCase();
+            if (!res.ok){
+              showOverlay('The server responded with status '+res.status+'. Ensure the dev server is running or the site is built.');
+              return;
+            }
+            // If server is serving raw JSX (text/jsx or other non-JS type), don't inject module.
+            if (ct.indexOf('application/javascript') === -1 && ct.indexOf('text/javascript') === -1 && ct.indexOf('application/ecmascript') === -1){
+              showOverlay('The server is serving source files (MIME: '+ct+'). Start the Vite dev server or build the project; do not serve raw `src` sources directly.');
+              return;
+            }
+            // Otherwise the MIME looks fine — inject the module script.
+            var s = document.createElement('script');
+            s.type = 'module';
+            s.src = '/src/main.jsx';
+            document.body.appendChild(s);
+          })
+          .catch(function(){
+            showOverlay('Failed to fetch application entry. Is the dev server running?');
+          });
+      })();
+    </script>
   </body>
 </html>
 </html>

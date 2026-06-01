@@ -49,24 +49,28 @@
 
 ### Local Development
 1. **Clone or download the repository**
-   ```bash
-   git clone https://github.com/himanshsharmaa/me.git
-   cd me
-   ```
+  ```bash
+  git clone https://github.com/himanshsharmaa/me.git
+  cd me
+  ```
 
-2. **Open in your browser**
-   - Open `index.html` directly in your preferred browser  
-   - Or use a local server like Live Server in VS Code  
-   - Or use Python's built-in server:
-     ```bash
-     python -m http.server 8000
-     ```
+2. **Install dependencies and run the Vite dev server (recommended)**
+  ```bash
+  npm install
+  npm run dev
+  ```
 
-3. **Customize as needed**
-   - Update content in `index.html`
-   - Modify styles in `css/style.css`
-   - Add your own images to the `images/` folder
-   - Replace `Resume-1.pdf` with your own resume
+  Then open the URL printed by the dev server (usually `http://localhost:5173`).
+
+3. **Build and preview the production bundle**
+  ```bash
+  npm run build
+  npm run preview
+  ```
+
+4. **Notes**
+  - Do not open `index.html` directly with the `file://` protocol — the browser will attempt to load raw `.jsx` sources and may refuse them due to MIME type restrictions. Use the dev server or serve the `dist` folder with a static server.
+  - If you need a quick static server, you can use `npx serve dist` after building.
 
 ## 📁 Project Structure
 
