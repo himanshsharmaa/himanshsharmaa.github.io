@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  A modern, responsive portfolio website to showcase my journey as a Full-Stack Developer. Built with HTML5, CSS3, Bootstrap 5, and JavaScript, featuring a clean dark UI, smooth animations, and a consistent purple accent theme.
+  A modern, responsive portfolio website to showcase my journey as a Full-Stack Developer. Rebuilt with React, Vite, TailwindCSS, and Framer Motion, featuring a clean dark UI, smooth animations, and a consistent purple accent theme.
 </p>
 
 <div align="center">
@@ -32,11 +32,12 @@
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
-- **Framework:** Bootstrap 5 for responsive design
-- **Icons:** Font Awesome & Unicons
+- **Frontend:** React, HTML5, CSS3, JavaScript (ES6+)
+- **Build Tool:** Vite
+- **Styling:** TailwindCSS
+- **Animations:** Framer Motion + CSS transitions
+- **Icons:** React Icons
 - **Fonts:** Google Fonts
-- **Animations:** CSS3 transitions and keyframes
 - **Version Control:** Git & GitHub
 
 ## 🚀 Getting Started
@@ -71,31 +72,31 @@
 
 ```
 portfolio/
-├── index.html              # Main HTML file
-├── README.md               # Project documentation
-├── Resume-1.pdf            # Downloadable resume
-├── css/
-│   ├── bootstrap.min.css   # Bootstrap framework
-│   ├── style.css           # Custom styles
-│   └── unicons.css         # Icon fonts
-├── js/
-│   ├── custom.js           # Custom JavaScript
-│   ├── bootstrap.min.js    # Bootstrap JS
-│   ├── jquery-3.3.1.min.js
-│   ├── popper.min.js
-│   └── smoothscroll.js     # Smooth scrolling
+├── index.html              # React entry HTML
+├── package.json            # App metadata and scripts
+├── public/
+│   ├── Resume.pdf          # Downloadable resume
+│   ├── favicon.svg         # Site favicon
+│   ├── robots.txt
+│   └── sitemap.xml
+├── src/
+│   ├── App.jsx             # App composition
+│   ├── components/         # Reusable UI components
+│   ├── data/               # Data-driven content
+│   ├── hooks/              # Shared hooks
+│   └── sections/           # Page sections
 ├── images/
 │   ├── project/            # Project screenshots
 │   └── undraw/             # SVG illustrations
-└── font/                   # Icon font files
+└── css/                    # Legacy assets kept only where still needed by static files
 ```
 
 ## 🎨 UI/UX Highlights
 
 - **Purple Theme:** Consistent purple color scheme (`#a855f7`) for accents and hover effects
-- **Smooth Animations:** CSS transitions for all interactive elements
+- **Smooth Animations:** Framer Motion entry transitions and subtle hover states
 - **Responsive Timeline:** Experience, education, and certifications shown in a vertical timeline that adapts beautifully from desktop to mobile
-- **Enhanced Mobile Menu:** Hamburger menu with smooth animation and improved visibility
+- **Enhanced Mobile Menu:** Sticky navigation with a smoother slide-down menu
 - **Hover Effects:** Interactive buttons and links with purple glow effects
 - **Modern Typography:** Clean, readable fonts with proper hierarchy
 - **Optimized Images:** Compressed and responsive image loading
