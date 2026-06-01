@@ -150,21 +150,25 @@ export default function HeroSection({ onNavigate }) {
           transition={{ duration: 0.75, ease: 'easeOut', delay: 0.2 }}
           className="relative mx-auto w-full max-w-xl"
         >
-          <div className="absolute inset-10 rounded-[2.5rem] bg-violet-500/15 blur-3xl" aria-hidden="true" />
-          <div className="glass-card glow-ring relative overflow-hidden rounded-[2.5rem] p-6 sm:p-8">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_45%)]" aria-hidden="true" />
-            <img
-              src="/images/undraw/undraw_software_engineer_lvl5.svg"
-              alt="Software engineer illustration"
-              className="relative z-10 mx-auto w-full max-w-md drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
-            />
+          <div className="absolute inset-8 rounded-[2.75rem] bg-violet-500/20 blur-[90px]" aria-hidden="true" />
+          <div className="absolute inset-0 rounded-[2.75rem] border border-violet-400/10 bg-gradient-to-br from-violet-500/10 via-transparent to-transparent" aria-hidden="true" />
+          <div className="glass-card glow-ring relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(192,132,252,0.24),transparent_38%),radial-gradient(circle_at_85%_12%,rgba(168,85,247,0.18),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_38%)]" aria-hidden="true" />
+            <div className="absolute inset-x-10 top-10 h-36 rounded-full bg-violet-400/20 blur-3xl" aria-hidden="true" />
+            <div className="relative z-10 rounded-[2rem] border border-white/8 bg-black/10 p-3 backdrop-blur-sm sm:p-4">
+              <img
+                src="/images/undraw/undraw_software_engineer_lvl5.svg"
+                alt="Software engineer illustration"
+                className="mx-auto w-full max-w-md drop-shadow-[0_28px_70px_rgba(0,0,0,0.28)]"
+              />
+            </div>
             <div className="relative z-10 mt-6 grid gap-3 sm:grid-cols-3">
               {[
                 ['Full-stack', 'Products'],
                 ['AI-first', 'Experiments'],
                 ['Founder', 'Mindset'],
               ].map(([title, subtitle]) => (
-                <div key={title} className="rounded-2xl border border-white/8 bg-black/20 px-4 py-4 text-center">
+                <div key={title} className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-center backdrop-blur-md">
                   <p className="text-sm font-semibold text-white">{title}</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.24em] text-slate-500">{subtitle}</p>
                 </div>
