@@ -186,47 +186,34 @@ export default function HeroSection({ onNavigate }) {
           transition={{ duration: 0.75, ease: 'easeOut', delay: 0.2 }}
           className="relative mx-auto w-full max-w-xl"
         >
-          <div className="absolute inset-8 rounded-[2.75rem] bg-violet-500/20 blur-[90px]" aria-hidden="true" />
-          <div className="absolute inset-0 rounded-[2.75rem] pointer-events-none" aria-hidden="true" />
-          <div className="glass-card glow-ring relative overflow-visible rounded-[2.5rem] p-0 sm:p-0 bg-transparent border-0">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(192,132,252,0.24),transparent_38%),radial-gradient(circle_at_85%_12%,rgba(168,85,247,0.18),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_38%)]" aria-hidden="true" />
-            <div className="absolute inset-x-10 top-10 h-36 rounded-full bg-violet-400/20 blur-3xl" aria-hidden="true" />
-              <div className="relative z-10 rounded-[2rem] p-0 bg-transparent border-0 sm:p-0">
-                {/* soft blurred glow behind the illustration for depth */}
-                <div aria-hidden="true" className="pointer-events-none absolute inset-2 -z-10 rounded-[1.6rem] bg-gradient-to-br from-violet-600/25 via-transparent to-transparent blur-2xl" />
-                {/* subtle shadow ellipse to replace harsh flat underlay */}
-                <div aria-hidden="true" className="pointer-events-none absolute left-1/2 bottom-2 -z-20 h-24 w-56 -translate-x-1/2 rounded-full bg-black/40 blur-[36px]" />
-
-                <motion.div
-                  initial={{ y: 0 }}
-                  animate={shouldReduceMotion ? { y: 0 } : { y: [0, -8, 0] }}
-                  transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-                  className="relative z-20 mx-auto w-full max-w-md"
-                  style={{ willChange: 'transform' }}
-                >
-                  <img
-                    src="/images/undraw/undraw_software_engineer_lvl5.svg"
-                    alt="Software engineer illustration"
-                    className="w-full h-auto mx-auto"
-                    style={{
-                      mixBlendMode: 'darken',
-                      filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.32))',
-                    }}
-                  />
-                </motion.div>
+          <motion.div
+            initial={{ y: 0 }}
+            animate={shouldReduceMotion ? { y: 0 } : { y: [0, -8, 0] }}
+            transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+            className="relative mx-auto w-full max-w-md"
+            style={{ willChange: 'transform' }}
+          >
+            <img
+              src="/images/undraw/undraw_software_engineer_lvl5.svg"
+              alt="Software engineer illustration"
+              className="w-full h-auto mx-auto"
+              style={{
+                mixBlendMode: 'normal',
+                filter: 'none',
+              }}
+            />
+          </motion.div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            {[
+              ['Full-stack', 'Products'],
+              ['AI-first', 'Experiments'],
+              ['Founder', 'Mindset'],
+            ].map(([title, subtitle]) => (
+              <div key={title} className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-center backdrop-blur-md">
+                <p className="text-sm font-semibold text-white">{title}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.24em] text-slate-500">{subtitle}</p>
               </div>
-            <div className="relative z-10 mt-6 grid gap-3 sm:grid-cols-3">
-              {[
-                ['Full-stack', 'Products'],
-                ['AI-first', 'Experiments'],
-                ['Founder', 'Mindset'],
-              ].map(([title, subtitle]) => (
-                <div key={title} className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-center backdrop-blur-md">
-                  <p className="text-sm font-semibold text-white">{title}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.24em] text-slate-500">{subtitle}</p>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </motion.div>
       </div>
