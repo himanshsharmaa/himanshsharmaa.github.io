@@ -1,0 +1,1 @@
+const fs=require('fs');const p='images/undraw/undraw_software_engineer_lvl5.svg';const s=fs.readFileSync(p,'utf8');console.log('contains ellipse?', s.includes('<ellipse'));console.log('contains f2f2f2?', s.includes('#f2f2f2'));console.log('length', s.length);
