@@ -51,46 +51,12 @@ function RotatingRoleAnimated({ roles }) {
 
 export default function HeroSection({ onNavigate }) {
   const shouldReduceMotion = useReducedMotion();
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0, active: false });
-
-  const handleMouseMove = (event) => {
-    const bounds = event.currentTarget.getBoundingClientRect();
-
-    setCursorPosition({
-      x: event.clientX - bounds.left,
-      y: event.clientY - bounds.top,
-      active: true,
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setCursorPosition((current) => ({ ...current, active: false }));
-  };
 
   return (
-    <section
-      id="intro"
-      className="section-shell relative overflow-hidden pt-28 sm:pt-32"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
+    <section id="intro" className="section-shell relative overflow-hidden pt-28 sm:pt-32">
       <div className="grid-noise absolute inset-0 opacity-30" aria-hidden="true" />
       <div className="hero-glow" aria-hidden="true" />
       <div className="hero-glow hero-glow-right" aria-hidden="true" />
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute z-0 h-72 w-72 rounded-full bg-violet-400/20 blur-3xl mix-blend-screen"
-        animate={
-          shouldReduceMotion || !cursorPosition.active
-            ? { opacity: 0 }
-            : {
-                opacity: 1,
-                x: cursorPosition.x - 144,
-                y: cursorPosition.y - 144,
-              }
-        }
-        transition={{ type: 'spring', stiffness: 120, damping: 20, mass: 0.2 }}
-      />
 
       <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-12 px-4 pb-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
         <div className="relative z-10 max-w-3xl">
