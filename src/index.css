@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #0f0f12;
+  --bg-alt: #111827;
+  --surface: rgba(17, 24, 39, 0.74);
+  --surface-strong: rgba(15, 15, 18, 0.88);
+  --line: rgba(168, 85, 247, 0.16);
+  --brand: #a855f7;
+  --brand-strong: #c084fc;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(168, 85, 247, 0.18), transparent 34%),
+    linear-gradient(180deg, #0b0b0f 0%, #0f0f12 32%, #0b0b0f 100%);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(168, 85, 247, 0.28);
+  color: #fff;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.35);
+  border-radius: 999px;
+}
+
+.section-shell {
+  position: relative;
+}
+
+.section-shell::before {
+  content: '';
+  position: absolute;
+  inset: -1px 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.28), transparent);
+  opacity: 0.9;
+}
+
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+}
+
+.glow-ring {
+  box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.18), 0 0 60px rgba(168, 85, 247, 0.14);
+}
+
+.grid-noise {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 90%);
+}
+
+.hero-glow {
+  position: absolute;
+  inset: auto auto 8% 8%;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.25), transparent 66%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.hero-glow.hero-glow-right {
+  inset: 12% 6% auto auto;
+  width: 18rem;
+  height: 18rem;
+}
+
+.input-focus {
+  transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.input-focus:focus {
+  border-color: rgba(168, 85, 247, 0.8);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
+}
+
+.timeline-line {
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.55), rgba(168, 85, 247, 0.16));
+}
+
+.nav-link-active {
+  color: #fff;
+}
