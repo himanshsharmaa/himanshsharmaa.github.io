@@ -100,8 +100,8 @@ export default function App() {
       <main>
         <HeroSection onNavigate={handleNavigate} />
         <AboutSection />
-        <SkillsSection />
         <TimelineSection />
+        <SkillsSection />
         <ProjectsSection />
         <ContactSection />
       </main>

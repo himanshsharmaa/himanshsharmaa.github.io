@@ -28,7 +28,7 @@ export default function AboutSection() {
         <SectionHeading
           eyebrow="About"
           title="Full-Stack & AI Developer building practical digital products"
-          description="A sharper, cleaner version of the same story: builder mindset, AI curiosity, and a strong focus on useful products that feel polished in the hand."
+          description="Builder mindset, AI curiosity, and a strong focus on practical products that are reliable, fast, and easy to use."
         />
 
         <motion.div
@@ -73,7 +73,7 @@ export default function AboutSection() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Tech Stack</h3>
-                <p className="text-sm text-slate-400">Grouped for scanability, not fake progress bars.</p>
+                <p className="text-sm text-slate-400">Core technologies I use to design, build, and ship products.</p>
               </div>
             </div>
 

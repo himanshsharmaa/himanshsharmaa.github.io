@@ -53,7 +53,7 @@ export default function ContactSection() {
         <SectionHeading
           eyebrow="Contact"
           title="Let's build something together"
-          description="Same frictionless contact flow, now cleaner and more responsive with a simple success state and better spacing."
+          description="Share your idea, timeline, or requirements. I usually respond quickly through WhatsApp, LinkedIn, or email."
         />
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
@@ -126,7 +126,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-violet-300/85">Contact form</p>
-                <h3 className="text-xl font-bold text-white">Minimal friction, clear success state</h3>
+                <h3 className="text-xl font-bold text-white">Send project details</h3>
               </div>
             </div>
 

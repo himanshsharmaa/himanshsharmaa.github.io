@@ -12,12 +12,12 @@ export default function TimelineSection() {
   );
 
   return (
-    <section id="journey" className="section-shell relative py-24 sm:py-28">
+    <section id="experience" className="section-shell relative py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Journey"
-          title="A story-driven timeline with clearer rhythm"
-          description="Education, freelance work, founder moves, and certifications stay in a vertical timeline so the narrative feels personal and premium."
+          eyebrow="Experience"
+          title="Work, education, and certifications"
+          description="A concise timeline of hands-on roles, academic milestones, and certifications that shaped my product and engineering approach."
         />
 
         <div className="mx-auto flex max-w-3xl flex-wrap justify-center gap-2 rounded-full border border-white/6 bg-white/5 p-2">

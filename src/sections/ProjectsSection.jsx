@@ -8,8 +8,8 @@ export default function ProjectsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Projects"
-          title="Polished cards with stronger storytelling"
-          description="Each project now explains the problem, the solution, and the impact so the portfolio works better as a conversion asset."
+          title="Selected projects"
+          description="Each project outlines the problem, solution, and outcome to show practical thinking and execution."
         />
 
         <div className="grid gap-6 lg:grid-cols-2">

@@ -8,8 +8,8 @@ export default function SkillsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Skills"
-          title="Grouped for readability, not hype"
-          description="The same stack is here, just presented with more breathing room so it scans well on desktop and mobile."
+          title="Core skills and tools"
+          description="Frontend, backend, databases, AI/ML, and developer tooling used across production and experimental projects."
         />
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

@@ -26,10 +26,10 @@ export const projects = [
   {
     title: 'Portfolio Website',
     subtitle: 'Personal Brand Site',
-    problem: 'The old portfolio needed a cleaner structure, better motion, and stronger responsiveness without losing its identity.',
+    problem: 'A personal website was needed to present profile, experience, projects, and contact details in a single clear flow.',
     description:
-      'A personal portfolio website built to showcase skills, projects, and journey. It features a dark purple aesthetic, smooth animations, and responsive section storytelling that works across devices.',
-    impact: 'This rebuild is the same narrative, now engineered for maintainability and scale.',
+      'A portfolio website built to highlight skills, experience, and project work with a clear information hierarchy and mobile-first responsiveness.',
+    impact: 'Improved clarity for recruiters and clients by presenting relevant information in a structured, easy-to-scan format.',
     stack: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
     image: '/images/project/project-image.png',
     githubUrl: 'https://github.com/himanshsharmaa/himanshsharmaa.github.io',
