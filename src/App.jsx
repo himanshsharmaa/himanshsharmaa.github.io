@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
 import Navbar from './components/Navbar';
+import PortfolioAssistant from './components/PortfolioAssistant';
 import { navLinks } from './data/profile';
 import { useActiveSection } from './hooks/useActiveSection';
 import AboutSection from './sections/AboutSection';
@@ -107,6 +108,7 @@ export default function App() {
       </main>
 
       <FooterSection />
+      <PortfolioAssistant />
     </div>
   );
 }
