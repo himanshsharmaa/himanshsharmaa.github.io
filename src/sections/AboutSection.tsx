@@ -23,8 +23,8 @@ const achievements = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="section-shell relative py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="about" className="w-full flex flex-col items-center justify-center py-20 px-6">
+      <div className="max-w-5xl w-full mx-auto flex flex-col items-center">
         <SectionHeading
           eyebrow="About"
           title="Full-Stack & AI Developer building practical digital products"
@@ -32,15 +32,15 @@ export default function AboutSection() {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-10%' }}
-          transition={{ duration: 0.6 }}
-          className="glass-card rounded-[2rem] p-6 sm:p-8"
+          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="glass-card w-full rounded-[2rem] border border-white/10 bg-black/30 p-6 text-center backdrop-blur-md sm:p-8"
         >
-          <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div className="flex flex-col items-center gap-8">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-violet-300/85">Developer mindset</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gray-400">Developer mindset</p>
               <p className="mt-4 text-base leading-8 text-slate-300 sm:text-lg">
                 I like building tools that solve specific problems, then shaping them until they feel simple,
                 fast, and trustworthy. My work spans frontend, backend, and AI experiments, but the common thread
@@ -50,8 +50,8 @@ export default function AboutSection() {
 
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {aboutStats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl border border-white/8 bg-white/5 px-5 py-4">
-                  <p className="text-3xl font-black tracking-tight text-violet-300">{stat.value}</p>
+                <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-center">
+                  <p className="text-3xl font-black tracking-tight text-white">{stat.value}</p>
                   <p className="mt-1 text-sm text-slate-400">{stat.label}</p>
                 </div>
               ))}
@@ -68,7 +68,7 @@ export default function AboutSection() {
             className="glass-card rounded-[2rem] p-6 sm:p-8"
           >
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/15 text-violet-200 ring-1 ring-violet-400/20">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-gray-200 ring-1 ring-white/20">
                 <FiZap className="h-5 w-5" />
               </div>
               <div>
@@ -86,10 +86,10 @@ export default function AboutSection() {
                 ['Tools', ['Git', 'GitHub', 'VS Code', 'Postman', 'Figma', 'Linux']],
               ].map(([title, items]) => (
                 <div key={title}>
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-violet-300/85">{title}</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gray-400">{title}</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {items.map((item) => (
-                      <span key={item} className="rounded-full border border-white/8 bg-white/5 px-3 py-1.5 text-sm text-slate-300 transition hover:border-violet-400/25 hover:bg-violet-500/10">
+                      <span key={item} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-300 transition hover:border-white/30 hover:bg-white/10">
                         {item}
                       </span>
                     ))}
@@ -99,11 +99,11 @@ export default function AboutSection() {
             </div>
 
             <div className="mt-8">
-              <a
+                <a
                 href="/Resume.pdf"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-2xl bg-violet-500 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-violet-400"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-5 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
               >
                 <FiDownload className="h-4 w-4" />
                 Download Resume
@@ -125,7 +125,7 @@ export default function AboutSection() {
 
                 return (
                   <div key={item.title} className="flex gap-4 rounded-2xl border border-white/8 bg-black/15 p-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-violet-500/12 text-violet-200 ring-1 ring-violet-400/20">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-gray-200 ring-1 ring-white/20">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>

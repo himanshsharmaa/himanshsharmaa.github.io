@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { FiCheckCircle, FiMail, FiMessageCircle, FiSend, FiUser, FiZap } from 'react-icons/fi';
 import SectionHeading from '../components/SectionHeading';
 import { contactLinks } from '../data/profile';
@@ -15,12 +15,12 @@ export default function ContactSection() {
   const [status, setStatus] = useState('idle');
   const [feedback, setFeedback] = useState('');
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setFormState((current) => ({ ...current, [name]: value }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus('sending');
     setFeedback('');
@@ -48,28 +48,29 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-shell relative py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="w-full flex flex-col items-center justify-center py-20 px-6">
+      <div className="max-w-5xl w-full mx-auto flex flex-col items-center">
+        
         <SectionHeading
           eyebrow="Contact"
           title="Let's build something together"
           description="Share your idea, timeline, or requirements. I usually respond quickly through WhatsApp, LinkedIn, or email."
         />
 
-        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        
           <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-10%' }}
-            transition={{ duration: 0.55 }}
-            className="glass-card rounded-[2rem] p-6 sm:p-8"
+            initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="glass-card w-full max-w-4xl rounded-[2rem] border border-white/10 bg-black/30 p-6 text-center backdrop-blur-md sm:p-8"
           >
-            <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/15 text-violet-200 ring-1 ring-violet-400/20">
+            <div className="flex items-center justify-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-gray-200 ring-1 ring-white/20">
                 <FiMessageCircle className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-violet-300/85">Fast response</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gray-400">Fast response</p>
                 <h3 className="text-xl font-bold text-white">WhatsApp, LinkedIn, or email</h3>
               </div>
             </div>
@@ -94,7 +95,7 @@ export default function ContactSection() {
                 href={contactLinks.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-4 text-sm font-semibold text-white transition hover:border-violet-400/25 hover:bg-violet-500/10"
+                className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10"
               >
                 <span className="inline-flex items-center gap-3"><FiUser className="h-4 w-4" /> LinkedIn Profile</span>
                 <span className="text-xs uppercase tracking-[0.24em] text-slate-400">Network</span>
@@ -102,30 +103,29 @@ export default function ContactSection() {
 
               <a
                 href={`mailto:${contactLinks.email}`}
-                className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-4 text-sm font-semibold text-white transition hover:border-violet-400/25 hover:bg-violet-500/10"
+                className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10"
               >
                 <span className="inline-flex items-center gap-3"><FiMail className="h-4 w-4" /> {contactLinks.email}</span>
                 <span className="text-xs uppercase tracking-[0.24em] text-slate-400">Email</span>
               </a>
             </div>
           </motion.div>
-
-          <motion.form
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-10%' }}
-            transition={{ duration: 0.55, delay: 0.05 }}
+        <motion.form
+          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
             onSubmit={handleSubmit}
-            className="glass-card rounded-[2rem] p-6 sm:p-8"
+            className="glass-card w-full max-w-4xl rounded-[2rem] border border-white/10 bg-black/30 p-6 text-center backdrop-blur-md sm:p-8"
           >
             <input type="hidden" name="_subject" value="New message from Himansh Sharma portfolio" />
 
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/15 text-violet-200 ring-1 ring-violet-400/20">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-gray-200 ring-1 ring-white/20">
                 <FiSend className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-violet-300/85">Contact form</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gray-400">Contact form</p>
                 <h3 className="text-xl font-bold text-white">Send project details</h3>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function ContactSection() {
                 value={formState.message}
                 onChange={handleChange}
                 required
-                rows="6"
+                rows={6}
                 placeholder="Tell me about the project, timeline, or idea."
                 className="input-focus w-full rounded-2xl border border-white/8 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500"
               />
@@ -174,7 +174,7 @@ export default function ContactSection() {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-violet-500 px-5 py-4 text-sm font-semibold text-white transition hover:bg-violet-400 disabled:cursor-not-allowed disabled:opacity-70"
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {status === 'sending' ? 'Sending...' : 'Send Message'}
             </button>
@@ -185,9 +185,8 @@ export default function ContactSection() {
                 {feedback}
               </p>
             ) : null}
-          </motion.form>
-        </div>
-      </div>
+            </motion.form>
+          </div>
     </section>
   );
 }
