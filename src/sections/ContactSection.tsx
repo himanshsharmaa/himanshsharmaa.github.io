@@ -49,7 +49,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="w-full flex flex-col items-center justify-center py-20 px-6">
-      <div className="max-w-5xl w-full mx-auto flex flex-col items-center">
+      <div className="max-w-[1600px] w-full mx-auto px-8 py-24">
         
         <SectionHeading
           eyebrow="Contact"
@@ -58,12 +58,13 @@ export default function ContactSection() {
         />
 
         
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20vw] gap-y-16 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+            initial={{ opacity: 0, y: 30, filter: 'blur(12px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="glass-card w-full max-w-4xl rounded-[2rem] border border-white/10 bg-black/30 p-6 text-center backdrop-blur-md sm:p-8"
+            viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            className="glass-card w-full rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-md sm:p-8"
           >
             <div className="flex items-center justify-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-gray-200 ring-1 ring-white/20">
@@ -71,11 +72,11 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gray-400">Fast response</p>
-                <h3 className="text-xl font-bold text-white">WhatsApp, LinkedIn, or email</h3>
+                <h3 className="text-xl font-bold text-white drop-shadow-lg">WhatsApp, LinkedIn, or email</h3>
               </div>
             </div>
 
-            <p className="mt-5 text-base leading-8 text-slate-300">
+            <p className="mt-5 text-base leading-8 text-slate-300 drop-shadow-md">
               If you have a product idea, a freelance brief, or a collaboration in mind, the quickest route is
               WhatsApp. I also keep LinkedIn and email open for formal outreach.
             </p>
@@ -111,12 +112,12 @@ export default function ContactSection() {
             </div>
           </motion.div>
         <motion.form
-          initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+          initial={{ opacity: 0, y: 30, filter: 'blur(12px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             onSubmit={handleSubmit}
-            className="glass-card w-full max-w-4xl rounded-[2rem] border border-white/10 bg-black/30 p-6 text-center backdrop-blur-md sm:p-8"
+            className="glass-card w-full rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-md sm:p-8 lg:col-start-2"
           >
             <input type="hidden" name="_subject" value="New message from Himansh Sharma portfolio" />
 
@@ -126,7 +127,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-gray-400">Contact form</p>
-                <h3 className="text-xl font-bold text-white">Send project details</h3>
+                <h3 className="text-xl font-bold text-white drop-shadow-lg">Send project details</h3>
               </div>
             </div>
 
@@ -186,6 +187,7 @@ export default function ContactSection() {
               </p>
             ) : null}
             </motion.form>
+          </div>
           </div>
     </section>
   );

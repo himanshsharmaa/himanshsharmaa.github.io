@@ -26,12 +26,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+      initial={{ opacity: 0, y: 30, filter: 'blur(12px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.8, delay: index * 0.08, ease: 'easeOut' }}
+      viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
+      transition={{ duration: 1.4, delay: 0.1 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -6 }}
-      className="group overflow-hidden rounded-[2rem] bg-black/30 text-center backdrop-blur-md border border-white/10 shadow-[0_22px_80px_rgba(0,0,0,0.22)] transition"
+      className="group overflow-hidden rounded-[2rem] bg-white/5 text-center backdrop-blur-md border border-white/10 shadow-[0_22px_80px_rgba(0,0,0,0.22)] transition"
     >
       <div className="relative overflow-hidden border-b border-white/5 bg-slate-950/50">
         <img

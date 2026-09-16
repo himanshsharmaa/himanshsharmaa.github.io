@@ -9,10 +9,10 @@ interface SectionHeadingProps {
 export default function SectionHeading({ eyebrow, title, description }: SectionHeadingProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
+      initial={{ opacity: 0, y: 30, filter: 'blur(12px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
+      transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
       className="mb-12 flex flex-col items-center text-center"
     >
       {eyebrow ? <p className="mb-4 font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.3em] text-gray-400 drop-shadow-md md:text-xs">{eyebrow}</p> : null}
