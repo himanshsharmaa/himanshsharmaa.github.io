@@ -16,9 +16,9 @@ export default function SkillsSection() {
         <SectionHeading eyebrow="Skills" title="Core skills and tools" description="Frontend, backend, databases, AI/ML, and developer tooling used across production and experimental projects." />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20vw] gap-y-16 w-full">
           {skillGroups.map((group, index) => (
-            <motion.div key={group.title} variants={revealVariants} whileHover={{ y: -4 }} className={`glass-card rounded-[1.75rem] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-md ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
+            <motion.div key={group.title} variants={revealVariants} whileHover={{ y: -4 }} className={`glass-card rounded-[1.75rem] border border-white/10 bg-white/5 p-6 text-left backdrop-blur-md shadow-2xl ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
               <p className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.3em] text-gray-400 drop-shadow-md md:text-xs">{group.title}</p>
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+              <div className="mt-4 flex flex-wrap items-center justify-start gap-2">
                 {group.items.map((item) => <span key={item} className="rounded-full border border-white/8 bg-white/5 px-3 py-1.5 font-['Outfit'] text-sm font-light text-gray-300 drop-shadow-md">{item}</span>)}
               </div>
             </motion.div>

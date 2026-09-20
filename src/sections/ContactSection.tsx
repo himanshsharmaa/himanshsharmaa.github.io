@@ -49,7 +49,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="w-full flex flex-col items-center justify-center py-20 px-6">
-      <div className="max-w-[1600px] w-full mx-auto px-8 py-24">
+      <div className="max-w-[1600px] w-full mx-auto px-8 py-24 pb-32">
         
         <SectionHeading
           eyebrow="Contact"
@@ -64,7 +64,7 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="glass-card w-full rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-md sm:p-8"
+            className="glass-card w-full rounded-[2rem] border border-white/10 bg-white/5 p-6 text-left backdrop-blur-md shadow-2xl sm:p-8"
           >
             <div className="flex items-center justify-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-gray-200 ring-1 ring-white/20">
@@ -117,7 +117,7 @@ export default function ContactSection() {
             viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             onSubmit={handleSubmit}
-            className="glass-card w-full rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center backdrop-blur-md sm:p-8 lg:col-start-2"
+            className="glass-card w-full rounded-[2rem] border border-white/10 bg-white/5 p-6 text-left backdrop-blur-md shadow-2xl sm:p-8 lg:col-start-2"
           >
             <input type="hidden" name="_subject" value="New message from Himansh Sharma portfolio" />
 

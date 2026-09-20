@@ -107,7 +107,7 @@ export default function HeroSection({ onNavigate }) {
             className="max-w-2xl font-['Space_Grotesk'] text-4xl font-light leading-tight tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-7xl"
           >
             I&apos;m Himansh Sharma, a{' '}
-            <span className="block bg-gradient-to-r from-white via-gray-200 to-gray-500 bg-clip-text font-extralight text-transparent drop-shadow-2xl">
+              <span className="block font-extralight text-white drop-shadow-2xl">
               <RotatingRole />
             </span>
           </motion.h1>
@@ -127,7 +127,7 @@ export default function HeroSection({ onNavigate }) {
             <a
               href="#projects"
               onClick={(event) => onNavigate(event, '#projects')}
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-5 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-transparent px-5 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white/10"
             >
               View Projects
               <FiArrowRight className="h-4 w-4" />
@@ -136,7 +136,7 @@ export default function HeroSection({ onNavigate }) {
               href="/Resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm font-semibold text-gray-300 transition-all hover:border-white/30 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
             >
               Download Resume
             </a>
@@ -165,7 +165,7 @@ export default function HeroSection({ onNavigate }) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.label}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] text-gray-300 backdrop-blur-md transition-all hover:border-white/30 hover:bg-white/10 hover:text-white"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-transparent text-white backdrop-blur-md transition-all hover:bg-white/10"
                 >
                   <Icon className="h-5 w-5" />
                 </a>
@@ -184,7 +184,7 @@ export default function HeroSection({ onNavigate }) {
             ].map(([title, subtitle]) => (
               <div
                 key={title}
-                className="cursor-pointer rounded-xl border border-white/20 bg-black/40 px-4 py-4 text-center backdrop-blur-md transition-all hover:bg-white/10"
+                className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-left backdrop-blur-md shadow-2xl transition-all hover:bg-white/10"
               >
                 <p className="text-sm font-semibold text-white">{title}</p>
                 <p className="mt-1 text-xs uppercase tracking-[0.24em] text-gray-300">{subtitle}</p>
