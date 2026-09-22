@@ -17,17 +17,17 @@ export default function Navbar({
   onNavigate,
 }: NavbarProps) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 bg-black/100 backdrop-blur-2xl border-b border-white/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a
           href="#intro"
           onClick={(event) => onNavigate(event, '#intro')}
           className="group inline-flex items-center gap-3 text-sm font-bold tracking-[0.28em] text-white"
         >
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/20 bg-white/[0.05] text-gray-200 shadow-[0_0_40px_rgba(255,255,255,0.12)] transition group-hover:border-white/30 group-hover:bg-white/10">
+          <span className="font-['Inter'] inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/20 bg-white/[0.05] text-gray-200 shadow-[0_0_40px_rgba(255,255,255,0.12)] transition group-hover:border-white/30 group-hover:bg-white/10">
             HS
           </span>
-          <span className="hidden text-slate-200 sm:inline">HIMANSH SHARMA</span>
+          <span className="font-['Inter'] hidden text-gray-300 sm:inline">HIMANSH SHARMA</span>
         </a>
 
         <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-2 py-2 backdrop-blur-md lg:flex">
@@ -40,7 +40,7 @@ export default function Navbar({
                 href={link.href}
                 onClick={(event) => onNavigate(event, link.href)}
                 className={`relative rounded-full px-4 py-2 text-sm font-medium transition ${
-                  isActive ? 'text-white' : 'text-slate-300 hover:text-white'
+                    isActive ? 'text-white' : 'text-gray-300 hover:text-white'
                 }`}
               >
                 {isActive ? (
@@ -50,7 +50,7 @@ export default function Navbar({
                     transition={{ type: 'spring', stiffness: 500, damping: 40 }}
                   />
                 ) : null}
-                <span className="relative z-10">{link.label}</span>
+                <span className="font-['Inter'] relative z-10">{link.label}</span>
               </a>
             );
           })}
@@ -59,7 +59,7 @@ export default function Navbar({
         <button
           type="button"
           onClick={onToggleMobileMenu}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] text-gray-300 transition-all hover:border-white/30 hover:bg-white/10 hover:text-white lg:hidden"
+          className="font-['Inter'] inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] text-gray-300 transition-all hover:border-white/30 hover:bg-white/10 hover:text-white lg:hidden"
           aria-label="Toggle navigation"
           aria-expanded={mobileMenuOpen}
         >
@@ -83,7 +83,7 @@ export default function Navbar({
                   key={link.href}
                   href={link.href}
                   onClick={(event) => onNavigate(event, link.href)}
-                  className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                  className={`font-['Inter'] rounded-2xl px-4 py-3 text-sm font-medium transition ${
                     isActive ? 'bg-white/10 text-white ring-1 ring-white/20' : 'text-gray-300 hover:bg-white/10 hover:text-white'
                   }`}
                 >

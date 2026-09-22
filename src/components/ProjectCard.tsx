@@ -31,73 +31,53 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: '-15% 0px -15% 0px' }}
       transition={{ duration: 1.4, delay: 0.1 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -6 }}
-      className="group overflow-hidden rounded-[2rem] bg-white/5 text-center backdrop-blur-md border border-white/10 shadow-[0_22px_80px_rgba(0,0,0,0.22)] transition"
+      className="group flex flex-col h-full bg-zinc-950/85 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.8)] transition-all hover:border-white/25 overflow-hidden text-left"
     >
-      <div className="relative overflow-hidden border-b border-white/5 bg-slate-950/50">
+      <div className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors duration-500 z-10" />
         <img
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="h-56 w-full object-cover object-center transition duration-500 group-hover:scale-[1.03] sm:h-60"
+          className="h-36 md:h-44 w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f12] via-transparent to-transparent opacity-90" />
       </div>
 
-      <div className="space-y-5 p-6 sm:p-7">
-        <div className="space-y-2">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <h3 className="font-[Space_Grotesk] text-4xl font-light tracking-tight text-white drop-shadow-lg md:text-5xl">{project.title}</h3>
-            <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-gray-300">
-              {project.subtitle}
-            </span>
-          </div>
-          <p className="text-sm font-medium uppercase tracking-[0.28em] text-slate-500">Problem</p>
-          <p className="text-sm leading-7 text-slate-400 drop-shadow-md">{project.problem}</p>
+      <div className="flex-grow flex flex-col p-6 space-y-4">
+        <div>
+          <span className="font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-1 block">
+            {project.subtitle}
+          </span>
+          <h3 className="font-['EB_Garamond'] tracking-tight text-3xl font-medium text-white drop-shadow-xl">{project.title}</h3>
         </div>
 
-        <p className="text-base leading-7 text-slate-300 drop-shadow-md">{project.description}</p>
-
-        <div className="rounded-2xl border border-white/5 bg-black/20 p-4">
-          <p className="text-sm font-medium uppercase tracking-[0.28em] text-slate-500">Impact</p>
-          <p className="mt-2 text-sm leading-7 text-slate-300 drop-shadow-md">{project.impact}</p>
+        <div className="space-y-3 flex-grow font-['Inter'] text-sm text-gray-300 leading-relaxed">
+          <p><span className="text-xs font-bold text-gray-100 uppercase tracking-wider block mb-0.5">Problem</span>{project.problem}</p>
+          <p><span className="text-xs font-bold text-gray-100 uppercase tracking-wider block mb-0.5">Solution</span>{project.description || project.problem}</p>
+          <p><span className="text-xs font-bold text-gray-100 uppercase tracking-wider block mb-0.5">Impact</span>{project.impact}</p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          {technologies.map((tech: string, index: number) => (
-            <span key={`${tech}-${index}`} className="rounded-full border border-white/8 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-300">
+        <div className="flex flex-wrap items-center justify-start gap-1.5 pt-2">
+          {technologies.map((tech: string, i: number) => (
+            <span key={`${tech}-${i}`} className="font-['Inter'] rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-gray-300 transition-all">
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <div className="flex items-center gap-4 pt-4 border-t border-white/10 mt-2">
           {liveUrl ? (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
-            >
-              Live Demo
-              <FiArrowUpRight className="h-4 w-4" />
+            <a href={liveUrl} target="_blank" rel="noreferrer" className="font-['Inter'] inline-flex items-center gap-1.5 text-xs font-semibold text-white hover:text-gray-300 transition-colors">
+              Live Demo <FiArrowUpRight className="h-3 w-3" />
             </a>
           ) : (
-            <span className="inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-400">
-              Live Demo coming soon
-            </span>
+            <span className="font-['Inter'] text-xs font-semibold text-gray-500">Demo coming soon</span>
           )}
-
-          {project.githubUrl ? (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/10"
-            >
-              GitHub
-              <FiGithub className="h-4 w-4" />
+          {project.githubUrl && (
+            <a href={project.githubUrl} target="_blank" rel="noreferrer" className="font-['Inter'] inline-flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-white transition-colors">
+              GitHub <FiGithub className="h-3 w-3" />
             </a>
-          ) : null}
+          )}
         </div>
       </div>
     </motion.article>

@@ -1,9 +1,7 @@
 export const heroRoles = [
-  'Full-Stack Developer',
   'AI/ML Engineer',
-  'Python Developer',
-  'Web Developer',
-  'Software Engineer',
+  'Full-Stack Developer',
+  'AI Architect',
 ];
 
 export const socialLinks = [
@@ -26,9 +24,9 @@ export const socialLinks = [
 ];
 
 export const aboutStats = [
-  { label: 'Years Experience', value: '2+' },
+  { label: 'Years Experience', value: '3+' },
   { label: 'Projects Built', value: '5+' },
-  { label: 'Technologies', value: '10+' },
+  { label: 'Certifications', value: '5' },
 ];
 
 export const contactLinks = {

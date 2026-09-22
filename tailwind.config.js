@@ -7,14 +7,14 @@ export default {
         ink: '#0f0f12',
         surface: '#111827',
         surfaceAlt: '#1b2233',
-        line: 'rgba(168, 85, 247, 0.16)',
-        brand: '#a855f7',
+        line: 'rgba(255, 255, 255, 0.10)',
+        brand: '#ffffff',
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(168, 85, 247, 0.18), 0 18px 60px rgba(168, 85, 247, 0.14)',
+        glow: '0 0 0 1px rgba(255, 255, 255, 0.10), 0 18px 60px rgba(0, 0, 0, 0.22)',
       },
       backgroundImage: {
-        'radial-glow': 'radial-gradient(circle at top, rgba(168, 85, 247, 0.16), transparent 48%)',
+        'radial-glow': 'radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 48%)',
       },
     },
   },

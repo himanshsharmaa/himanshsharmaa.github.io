@@ -238,13 +238,13 @@ export default function PortfolioAssistant() {
         <div className="glass-card w-[calc(100vw-2rem)] max-w-sm overflow-hidden rounded-3xl border border-white/10">
           <div className="flex items-center justify-between border-b border-white/10 bg-white/10 px-4 py-3">
             <div>
-              <p className="text-sm font-semibold text-white">Portfolio Assistant</p>
-              <p className="text-xs text-gray-300">Replies on behalf of Himansh</p>
+              <p className="font-['Inter'] text-sm font-semibold text-white">Portfolio Assistant</p>
+              <p className="font-['Inter'] text-xs text-gray-300">Replies on behalf of Himansh</p>
             </div>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-200 transition hover:border-white/30 hover:text-white"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-gray-300 transition hover:border-white/30 hover:text-white"
               aria-label="Close assistant"
             >
               <FiX className="h-4 w-4" />
@@ -257,7 +257,7 @@ export default function PortfolioAssistant() {
                 <div
                   className={`w-fit max-w-[88%] whitespace-pre-line rounded-2xl px-3.5 py-2.5 text-sm leading-6 ${
                     message.role === 'assistant'
-                      ? 'border border-white/10 bg-white/5 text-slate-200'
+                      ? 'border border-white/10 bg-white/5 text-gray-300'
                       : 'ml-auto bg-white/10 text-white'
                   }`}
                 >
@@ -272,7 +272,7 @@ export default function PortfolioAssistant() {
                         href={action.href}
                         target={action.external ? '_blank' : undefined}
                         rel={action.external ? 'noreferrer' : undefined}
-                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-300 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
                       >
                         {action.label}
                       </a>
@@ -282,7 +282,7 @@ export default function PortfolioAssistant() {
               </div>
             ))}
 
-            {isTyping ? <p className="text-xs text-slate-400">Assistant is typing...</p> : null}
+            {isTyping ? <p className="font-['Inter'] text-xs text-gray-400">Assistant is typing...</p> : null}
 
             <div ref={messageEndRef} />
           </div>
@@ -294,7 +294,7 @@ export default function PortfolioAssistant() {
                   key={prompt}
                   type="button"
                   onClick={() => sendMessage(prompt)}
-                  className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+                  className="font-['Inter'] rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-gray-300 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
                 >
                   {prompt}
                 </button>
@@ -312,12 +312,12 @@ export default function PortfolioAssistant() {
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask about projects, skills, or contact"
-                className="input-focus w-full rounded-2xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white placeholder:text-slate-500"
+                className="input-focus w-full box-border rounded-2xl border border-white/10 bg-white/5 px-3.5 py-2.5 font-['Inter'] text-sm text-white placeholder:text-gray-400"
                 aria-label="Type your message"
               />
               <button
                 type="submit"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
+                className="font-['Inter'] inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
                 aria-label="Send message"
               >
                 <FiSend className="h-4 w-4" />

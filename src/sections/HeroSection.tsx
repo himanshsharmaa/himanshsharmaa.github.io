@@ -1,5 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+// src/sections/HeroSection.tsx
+import { motion } from 'framer-motion';
+import { useEffect, useState, type MouseEvent } from 'react';
 import { FiArrowRight, FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
 import { heroRoles, socialLinks } from '../data/profile';
 
@@ -8,7 +9,7 @@ const heroParentVariants = {
   visible: {
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.5,
+      delayChildren: 0.2,
     },
   },
 };
@@ -16,41 +17,28 @@ const heroParentVariants = {
 const heroChildVariants = {
   hidden: {
     opacity: 0,
-    y: 30,
-    filter: 'blur(12px)',
+    y: 25,
+    filter: 'blur(10px)',
   },
   visible: {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
     transition: {
-      duration: 1.4,
+      duration: 1.2,
       ease: [0.16, 1, 0.3, 1],
-      delay: 0.1,
     },
   },
 };
 
-function RotatingRole() {
-  const shouldReduceMotion = useReducedMotion();
-
-  if (shouldReduceMotion) {
-    return (
-      <span className="bg-gradient-to-r from-white via-gray-200 to-gray-500 bg-clip-text text-transparent">
-        Full-Stack Developer
-      </span>
-    );
-  }
-
-  return <RotatingRoleAnimated roles={heroRoles} />;
-}
-
-function RotatingRoleAnimated({ roles }) {
+function RotatingRoleAnimated({ roles }: { roles: string[] }) {
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
+    if (!roles || roles.length === 0) return;
+
     const currentRole = roles[roleIndex];
     const timeout = window.setTimeout(
       () => {
@@ -67,67 +55,87 @@ function RotatingRoleAnimated({ roles }) {
           setRoleIndex((value) => (value + 1) % roles.length);
         }
       },
-      deleting ? 70 : charIndex === currentRole.length ? 1400 : 95,
+      deleting ? 45 : charIndex === currentRole.length ? 1600 : 75,
     );
 
     return () => window.clearTimeout(timeout);
   }, [charIndex, deleting, roleIndex, roles]);
 
+  if (!roles || roles.length === 0) return null;
+
   return (
-    <span className="inline-flex items-center border-b border-white/20 pb-1 bg-gradient-to-r from-white via-gray-200 to-gray-500 bg-clip-text text-transparent">
+    <span className="font-['Inter'] inline-flex items-center text-white drop-shadow-xl">
       {roles[roleIndex].slice(0, charIndex)}
-      <span className="ml-0.5 inline-block h-[1.1em] w-[2px] bg-white" aria-hidden="true" />
+      <span className="font-['Inter'] ml-1 inline-block h-[0.85em] w-[3px] bg-white animate-pulse" aria-hidden="true" />
     </span>
   );
 }
 
-export default function HeroSection({ onNavigate }) {
-  return (
-    <section id="intro" className="section-shell pointer-events-none relative overflow-hidden pt-28 sm:pt-32">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-0 w-full bg-gradient-to-r from-black/90 via-black/40 to-transparent lg:w-1/2" aria-hidden="true" />
-      <div className="hero-glow pointer-events-none" aria-hidden="true" />
-      <div className="hero-glow hero-glow-right pointer-events-none" aria-hidden="true" />
+interface HeroSectionProps {
+  onNavigate: (event: MouseEvent<HTMLElement>, hash: string) => void;
+}
 
-      <div className="max-w-[1600px] w-full mx-auto px-8 py-24">
+export default function HeroSection({ onNavigate }: HeroSectionProps) {
+  return (
+    <section
+      id="intro"
+      className="section-shell pointer-events-none relative flex min-h-screen w-full flex-col items-start justify-center bg-transparent px-4 sm:px-6 py-28 text-left"
+    >
+      <div className="w-full max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={heroParentVariants}
-          className="relative z-10 flex flex-col items-start text-left max-w-2xl mr-auto mt-32"
+          className="relative z-10 flex max-w-4xl flex-col items-start text-left mt-16"
         >
           <motion.div
             variants={heroChildVariants}
-            className="pointer-events-auto mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-gray-200"
+            className="pointer-events-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 font-['Inter'] text-[10px] font-semibold uppercase tracking-[0.3em] text-gray-300 drop-shadow-lg backdrop-blur-xl transition-all hover:bg-white/5"
           >
             Available for freelance and product collaborations
           </motion.div>
 
           <motion.h1
             variants={heroChildVariants}
-            className="max-w-2xl font-['Space_Grotesk'] text-4xl font-light leading-tight tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-7xl"
+            className="font-['EB_Garamond'] text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-white drop-shadow-xl leading-[1.1]"
           >
-            I&apos;m Himansh Sharma, a{' '}
-              <span className="block font-extralight text-white drop-shadow-2xl">
-              <RotatingRole />
+            <span className="block overflow-hidden pb-1">
+              <motion.span
+                initial={{ y: '110%', filter: 'blur(8px)' }}
+                animate={{ y: '0%', filter: 'blur(0px)' }}
+                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+                className="block text-white"
+              >
+                I'm Himansh Sharma, an
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden pb-2 min-h-[1.2em]">
+              <motion.span
+                initial={{ y: '110%', filter: 'blur(8px)' }}
+                animate={{ y: '0%', filter: 'blur(0px)' }}
+                transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                className="block text-white"
+              >
+                <RotatingRoleAnimated roles={heroRoles} />
+              </motion.span>
             </span>
           </motion.h1>
 
           <motion.p
             variants={heroChildVariants}
-            className="pointer-events-auto mt-6 max-w-2xl font-['Outfit'] font-light tracking-wide text-gray-300 drop-shadow-md sm:text-lg sm:leading-8"
+            className="pointer-events-auto mt-6 max-w-2xl font-['Inter'] text-lg md:text-xl font-normal tracking-wide text-gray-300 drop-shadow-lg leading-relaxed"
           >
-            I build practical digital products with a founder mindset, combining full-stack engineering,
-            AI experimentation, and a careful eye for polished user experience.
+            I build practical digital products with a founder mindset, combining full-stack engineering, AI experimentation, and a careful eye for polished user experience.
           </motion.p>
 
           <motion.div
             variants={heroChildVariants}
-            className="pointer-events-auto mt-8 flex flex-wrap gap-4"
+            className="pointer-events-auto mt-8 flex flex-wrap justify-start gap-4"
           >
             <a
               href="#projects"
               onClick={(event) => onNavigate(event, '#projects')}
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-transparent px-5 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white/10"
+              className="font-['Inter'] inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/10"
             >
               View Projects
               <FiArrowRight className="h-4 w-4" />
@@ -136,7 +144,7 @@ export default function HeroSection({ onNavigate }) {
               href="/Resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
+              className="font-['Inter'] inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-xl shadow-2xl transition-all hover:bg-white/10"
             >
               Download Resume
             </a>
@@ -144,20 +152,15 @@ export default function HeroSection({ onNavigate }) {
 
           <motion.div
             variants={heroChildVariants}
-            className="pointer-events-auto mt-8 flex flex-wrap items-center gap-3"
+            className="pointer-events-auto mt-8 flex flex-wrap items-center justify-start gap-3"
           >
             {socialLinks.map((link) => {
-              const icon =
-                link.label === 'LinkedIn'
-                  ? FiLinkedin
-                  : link.label === 'GitHub'
-                    ? FiGithub
-                    : link.label === 'Instagram'
-                      ? FiInstagram
-                      : FiTwitter;
-
-              const Icon = icon;
-
+              const iconMap: Record<string, typeof FiLinkedin> = {
+                LinkedIn: FiLinkedin,
+                GitHub: FiGithub,
+                Instagram: FiInstagram,
+              };
+              const Icon = iconMap[link.label] || FiTwitter;
               return (
                 <a
                   key={link.label}
@@ -165,9 +168,9 @@ export default function HeroSection({ onNavigate }) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={link.label}
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-transparent text-white backdrop-blur-md transition-all hover:bg-white/10"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 text-gray-300 backdrop-blur-xl shadow-2xl transition-all hover:bg-white/10 hover:text-white"
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="h-4 w-4" />
                 </a>
               );
             })}
@@ -175,19 +178,23 @@ export default function HeroSection({ onNavigate }) {
 
           <motion.div
             variants={heroChildVariants}
-            className="pointer-events-auto mt-10 grid gap-3 sm:grid-cols-3"
+            className="pointer-events-auto mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch w-full"
           >
             {[
-              ['Full-stack', 'Products'],
-              ['AI-first', 'Experiments'],
-              ['Founder', 'Mindset'],
+              ['Full-stack Products', ''],
+              ['AI-first Experiments', ''],
+              ['Founder Mindset', ''],
             ].map(([title, subtitle]) => (
               <div
                 key={title}
-                className="cursor-pointer rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-left backdrop-blur-md shadow-2xl transition-all hover:bg-white/10"
+                className="flex flex-col h-full cursor-pointer rounded-2xl border border-white/10 bg-black/40 px-6 py-5 text-left backdrop-blur-xl shadow-2xl transition-all hover:bg-white/5 hover:border-white/20"
               >
-                <p className="text-sm font-semibold text-white">{title}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.24em] text-gray-300">{subtitle}</p>
+                <p className="font-['Inter'] text-sm font-semibold text-white drop-shadow-lg flex-grow">{title}</p>
+                {subtitle && (
+                  <p className="mt-2 font-['Inter'] text-xs uppercase tracking-[0.24em] text-gray-400 drop-shadow-lg">
+                    {subtitle}
+                  </p>
+                )}
               </div>
             ))}
           </motion.div>

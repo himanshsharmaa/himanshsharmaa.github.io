@@ -11,15 +11,15 @@ const stackVariants = { hidden: {}, visible: { transition: { staggerChildren: 0.
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="w-full flex flex-col items-center justify-center py-20 px-6">
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-15% 0px -15% 0px' }} variants={stackVariants} className="max-w-[1600px] w-full mx-auto px-8 py-24">
-        <SectionHeading eyebrow="Skills" title="Core skills and tools" description="Frontend, backend, databases, AI/ML, and developer tooling used across production and experimental projects." />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20vw] gap-y-16 w-full">
-          {skillGroups.map((group, index) => (
-            <motion.div key={group.title} variants={revealVariants} whileHover={{ y: -4 }} className={`glass-card rounded-[1.75rem] border border-white/10 bg-white/5 p-6 text-left backdrop-blur-md shadow-2xl ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
-              <p className="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.3em] text-gray-400 drop-shadow-md md:text-xs">{group.title}</p>
-              <div className="mt-4 flex flex-wrap items-center justify-start gap-2">
-                {group.items.map((item) => <span key={item} className="rounded-full border border-white/8 bg-white/5 px-3 py-1.5 font-['Outfit'] text-sm font-light text-gray-300 drop-shadow-md">{item}</span>)}
+    <section id="skills" className="w-full flex flex-col items-center justify-center bg-transparent py-20 text-center">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-15% 0px -15% 0px' }} variants={stackVariants} className="w-full bg-transparent py-24">
+        <SectionHeading eyebrow="SKILLS" title="Core skills and tools" description="Frontend, backend, databases, AI/ML, and developer tooling used across production and experimental projects." />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch w-full text-left">
+          {skillGroups.map((group) => (
+            <motion.div key={group.title} variants={revealVariants} whileHover={{ y: -4 }} className="flex flex-col h-full bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl transition-all hover:bg-white/5 p-6 md:p-8 text-left">
+              <p className="font-['Inter'] text-[10px] uppercase tracking-[0.3em] text-gray-300 drop-shadow-lg md:text-xs">{group.title}</p>
+              <div className="mt-4 flex-grow flex flex-wrap gap-2 items-center justify-start">
+                {group.items.map((item) => <span key={item} className="font-['Inter'] rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-light text-gray-300 drop-shadow-lg transition-all hover:bg-white/10">{item}</span>)}
               </div>
             </motion.div>
           ))}

@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     title: 'Frontend',
-    items: ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'React', 'Tailwind CSS', 'Bootstrap', 'jQuery'],
+    items: ['React', 'Tailwind CSS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Bootstrap', 'jQuery'],
   },
   {
     title: 'Backend',
@@ -13,10 +13,10 @@ export const skillGroups = [
   },
   {
     title: 'AI / ML',
-    items: ['TensorFlow', 'Keras', 'OpenCV', 'NumPy', 'Pandas', 'Scikit-learn', 'CNN', 'NLP', 'Computer Vision', 'Jupyter'],
+    items: ['TensorFlow', 'Keras', 'OpenCV', 'NumPy', 'Pandas', 'Scikit-learn', 'CNN', 'NLP', 'Computer Vision', 'YOLOv8', 'RAG', 'LLMs'],
   },
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'VS Code', 'Postman', 'Figma', 'Linux', 'JSON'],
+    items: ['Git', 'GitHub', 'VS Code', 'Postman', 'Figma', 'Linux', 'JSON', 'AWS', 'IBM Cloud'],
   },
 ];

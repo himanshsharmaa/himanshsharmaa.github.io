@@ -2,13 +2,13 @@ import { FiArrowUp, FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-i
 
 export default function FooterSection() {
   return (
-    <footer className="border-t border-white/5 py-8">
+    <footer className="bg-transparent border-t border-white/5 py-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div>
-          <p className="text-sm text-slate-400">
+          <p className="font-['Inter'] text-sm text-gray-300 drop-shadow-lg">
             Designed & built by <a href="https://www.linkedin.com/in/himanshsharmaa" className="font-semibold text-gray-300 transition hover:text-white">Himansh Sharma</a>
           </p>
-          <p className="mt-1 text-xs uppercase tracking-[0.24em] text-slate-600">Same portfolio, rebuilt professionally.</p>
+          <p className="font-['Inter'] mt-1 text-xs uppercase tracking-[0.24em] text-gray-400 drop-shadow-lg">Engineering intelligent systems and scalable web products.</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -24,7 +24,7 @@ export default function FooterSection() {
               target="_blank"
               rel="noreferrer"
               aria-label={label}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-300 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+              className="font-['Inter'] inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-gray-300 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
             >
               <Icon className="h-4 w-4" />
             </a>
@@ -32,7 +32,7 @@ export default function FooterSection() {
 
           <a
             href="#intro"
-            className="inline-flex h-11 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+            className="font-['Inter'] inline-flex h-11 items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 text-sm font-semibold text-gray-300 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
           >
             Back to top
             <FiArrowUp className="h-4 w-4" />
