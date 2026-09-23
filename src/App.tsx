@@ -22,7 +22,9 @@ import ContactSection from './sections/ContactSection';
 import FooterSection from './sections/FooterSection';
 import HeroSection from './sections/HeroSection';
 import ProjectsSection from './sections/ProjectsSection';
+import ServicesSection from './sections/ServicesSection';
 import SkillsSection from './sections/SkillsSection';
+import TestimonialsSection from './sections/TestimonialsSection';
 import TimelineSection from './sections/TimelineSection';
 
 import blackHoleVertexShader from './shaders/blackHoleVertex';
@@ -223,9 +225,10 @@ function randomGaussian(): number {
   );
 }
 
+// PERFORMANCE FIX: Reduced size from 512 to 256 for faster initial load
 function createCanvasTexture(
   type: PlanetType,
-  size = 512,
+  size = 256,
 ): THREE.CanvasTexture {
   const canvas = document.createElement('canvas');
 
@@ -536,12 +539,14 @@ export default function App() {
           'high-performance',
       });
 
-    renderer.setPixelRatio(
-      Math.min(
-        window.devicePixelRatio,
-        2,
-      ),
+    // PERFORMANCE FIX: Cap pixel ratio on mobile so UnrealBloomPass doesn't lag
+    const isMobile = window.innerWidth < 768;
+    const currentPixelRatio = Math.min(
+      window.devicePixelRatio,
+      isMobile ? 1 : 1.5
     );
+
+    renderer.setPixelRatio(currentPixelRatio);
 
     renderer.setSize(
       window.innerWidth,
@@ -560,18 +565,13 @@ export default function App() {
     renderer.toneMapping =
       THREE.ACESFilmicToneMapping;
 
-    renderer.toneMappingExposure =
-      1.15;
+    // CONTRAST FIX: Lowered exposure from 1.15 to 0.95 to dim the 3D background slightly
+    renderer.toneMappingExposure = 0.95;
 
     const composer =
       new EffectComposer(renderer);
 
-    composer.setPixelRatio(
-      Math.min(
-        window.devicePixelRatio,
-        2,
-      ),
-    );
+    composer.setPixelRatio(currentPixelRatio);
 
     composer.setSize(
       window.innerWidth,
@@ -650,6 +650,11 @@ export default function App() {
           3,
         ),
         new THREE.Vector3(
+          5,
+          -1,
+          1,
+        ),
+        new THREE.Vector3(
           -6,
           -2,
           -1,
@@ -658,6 +663,11 @@ export default function App() {
           3,
           1,
           -4,
+        ),
+        new THREE.Vector3(
+          -3,
+          3,
+          -5,
         ),
         new THREE.Vector3(
           0,
@@ -679,13 +689,23 @@ export default function App() {
           -9,
         ),
         new THREE.Vector3(
+          0.2,
+          1.5,
+          -9,
+        ),
+        new THREE.Vector3(
           -0.5,
           1.2,
           -9,
         ),
         new THREE.Vector3(
-          0,
+          0.3,
           1.5,
+          -9,
+        ),
+        new THREE.Vector3(
+          -0.2,
+          1.7,
           -9,
         ),
         new THREE.Vector3(
@@ -887,11 +907,12 @@ export default function App() {
         -9,
       );
 
+    // PERFORMANCE FIX: Reduced black hole segments from 128 to 64
     const blackHoleGeometry =
       new THREE.SphereGeometry(
         1.5,
-        128,
-        128,
+        64,
+        64,
       );
 
     const blackHoleMaterial =
@@ -936,7 +957,8 @@ export default function App() {
        ACCRETION DISK
     -------------------------------------------------- */
 
-    const diskCount = 9000;
+    // PERFORMANCE FIX: Reduced disk particles from 9000 to 5000
+    const diskCount = 5000;
 
     const diskPositions =
       new Float32Array(
@@ -1125,11 +1147,12 @@ export default function App() {
           texture,
         );
 
+        // PERFORMANCE FIX: Reduced planet segments from 96 to 48
         const geometry =
           new THREE.SphereGeometry(
             config.radius,
-            96,
-            96,
+            48,
+            48,
           );
 
         const material =
@@ -1357,18 +1380,19 @@ export default function App() {
           height,
         );
 
-        const pixelRatio =
-          Math.min(
-            window.devicePixelRatio,
-            2,
-          );
+        // Update pixel ratio capping on resize
+        const isMobileResize = window.innerWidth < 768;
+        const newPixelRatio = Math.min(
+          window.devicePixelRatio,
+          isMobileResize ? 1 : 1.5
+        );
 
         renderer.setPixelRatio(
-          pixelRatio,
+          newPixelRatio,
         );
 
         composer.setPixelRatio(
-          pixelRatio,
+          newPixelRatio,
         );
       };
 
@@ -1823,24 +1847,26 @@ export default function App() {
         "
       />
 
+      {/* CONTRAST FIX 1: Darkened base overlay to force UI elements to pop out */}
       <div
         className="
           fixed inset-0
           z-[2]
           pointer-events-none
-          bg-slate-950/32
+          bg-black/50
         "
       />
 
+      {/* CONTRAST FIX 2: Harsh vignette - keeps center lit but darkens borders aggressively where text lives */}
       <div
         className="fixed inset-0 z-[3] pointer-events-none"
         style={{
           background: `
             radial-gradient(
               circle at center,
-              rgba(255, 255, 255, 0.018) 0%,
-              rgba(100, 100, 100, 0.008) 35%,
-              rgba(0, 0, 0, 0.28) 100%
+              transparent 0%,
+              rgba(0, 0, 0, 0.4) 40%,
+              rgba(0, 0, 0, 0.85) 100%
             )
           `,
         }}
@@ -1908,11 +1934,15 @@ export default function App() {
 
               <AboutSection />
 
+              <ServicesSection />
+
               <TimelineSection />
 
               <SkillsSection />
 
               <ProjectsSection />
+
+              <TestimonialsSection />
 
               <ContactSection />
             </main>

@@ -11,7 +11,7 @@ export const timelineTabs = [
       },
       {
         year: 'Aug 2025 - Dec 2025',
-        title: 'Contributor',
+        title: 'Open-Source Contributor',
         company: 'GirlScript Summer of Code',
         description: 'Contributed to open-source projects.',
       },
@@ -30,7 +30,7 @@ export const timelineTabs = [
       {
         year: '2024 - Present',
         title: 'Founder',
-        company: 'Keplor',
+        company: 'Keplor Tech',
         description: 'Leading product direction and execution for AI-first software solutions focused on practical user outcomes.',
       },
       {
@@ -55,7 +55,7 @@ export const timelineTabs = [
         year: 'Oct 2021 - Jul 2024',
         title: 'Diploma, Computer Engineering',
         company: 'Government Polytechnic Nilokheri',
-        description: 'Grade: 8. Led a team project on Web Platform Development.',
+        description: 'Grade: 7. Led a team project on Web Platform Development.',
       },
     ],
   },
@@ -66,13 +66,13 @@ export const timelineTabs = [
       {
         year: 'Jul 2025',
         title: 'Artificial Intelligence',
-        company: 'IBM',
+        company: 'IBM / Edunet Foundation',
         description: '',
       },
       {
         year: 'Jul 2025',
         title: 'Cloud Computing',
-        company: 'IBM',
+        company: 'IBM / Edunet Foundation',
         description: '',
       },
       {
