@@ -64,9 +64,9 @@ function RotatingRoleAnimated({ roles }: { roles: string[] }) {
   if (!roles || roles.length === 0) return null;
 
   return (
-    <span className="font-['Inter'] inline-flex items-center text-white drop-shadow-xl">
+    <span className="inline-flex items-center text-white drop-shadow-xl">
       {roles[roleIndex].slice(0, charIndex)}
-      <span className="font-['Inter'] ml-1 inline-block h-[0.85em] w-[3px] bg-white animate-pulse" aria-hidden="true" />
+      <span className="ml-1 inline-block h-[0.85em] w-[3px] bg-white animate-pulse" aria-hidden="true" />
     </span>
   );
 }
@@ -123,7 +123,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
 
           <motion.p
             variants={heroChildVariants}
-            className="pointer-events-auto mt-6 max-w-2xl font-['Inter'] text-lg md:text-xl font-normal tracking-wide text-gray-300 drop-shadow-lg leading-relaxed"
+            className="pointer-events-auto mt-6 max-w-2xl font-['EB_Garamond'] text-lg md:text-xl font-normal tracking-wide text-gray-300 drop-shadow-lg leading-relaxed"
           >
             I build practical digital products with a founder mindset, combining full-stack engineering, AI experimentation, and a careful eye for polished user experience.
           </motion.p>
@@ -135,7 +135,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             <a
               href="#projects"
               onClick={(event) => onNavigate(event, '#projects')}
-              className="font-['Inter'] inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-6 py-3.5 font-['Inter'] text-sm font-semibold text-white backdrop-blur-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/10"
             >
               View Projects
               <FiArrowRight className="h-4 w-4" />
@@ -144,7 +144,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               href="/Resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="font-['Inter'] inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-xl shadow-2xl transition-all hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-6 py-3.5 font-['Inter'] text-sm font-semibold text-white backdrop-blur-xl shadow-2xl transition-all hover:bg-white/10"
             >
               Download Resume
             </a>
